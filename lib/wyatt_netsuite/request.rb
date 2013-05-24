@@ -4,17 +4,17 @@ module Wyatt
 
     class Request < Wyatt::Request
 
-      attr_accessor :record_type, :
-
-      def initialize(record_type)
+      def initialize(http_method, uri, params, body, options={})
         super
       end
 
-      def self.build_initialize_request(record_type, &block)
-        # TODO (JamesChristie) throw Wyatt::Netsuite::Exception here on missing data
-        base_req = Wyatt::Request.new(:post, config.initialize_path, params_hash, body)
-        yield base_req if block_given?
-        base_req
+      def self.netsuite_initialize(body)
+        Wyatt::Netsuite::Request.new(
+          :post,
+          Wyatt::Netsuite::Configuration.initialize_path,
+          build_params,
+          body
+        )
       end
 
       #Wyatt::Netsuite.upsert(Wyatt::Netsuite::RecordSet.new)
@@ -40,6 +40,10 @@ module Wyatt
       private
 
       def marshal_body
+      end
+
+      def self.build_params
+        true
       end
 
     end
