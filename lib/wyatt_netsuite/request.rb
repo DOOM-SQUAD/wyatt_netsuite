@@ -9,13 +9,13 @@ module Wyatt
       end
 
       def self.netsuite_initialize(body)
-        Wyatt::Netsuite::Request.new(
-          :post,
-          Wyatt::Netsuite::Configuration.initialize_path,
-          build_params,
-          body
-        )
+        build(:initialize_path, body) 
       end
+
+      def self.load(body)
+        build(:load_path, body)
+      end
+
 
       #Wyatt::Netsuite.upsert(Wyatt::Netsuite::RecordSet.new)
 
@@ -46,6 +46,14 @@ module Wyatt
         true
       end
 
+      def self.build(method, body)
+        Wyatt::Netsuite::Request.new(
+          :post,
+          Wyatt::Netsuite::Configuration.send(method),
+          build_params,
+          body
+        )
+      end
     end
   
   end
