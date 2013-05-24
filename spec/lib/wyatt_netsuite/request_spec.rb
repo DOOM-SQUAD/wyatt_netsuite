@@ -4,16 +4,18 @@ describe Wyatt::Netsuite::Request do
 
   let(:request)                { Wyatt::Netsuite::Request }
   let(:config)                 { Wyatt::Netsuite::Configuration }
+
   let(:initialize_path)        { config.initialize_path }
   let(:load_path)              { config.load_path }
+  let(:upsert_path)            { config.upsert_path }
+
   let(:body)                   { {'test' => 'test' } }
   let(:build_params)           { true }
-  let(:initialize_path_string) { 'initialize string' }
-  let(:load_path_string)       { 'load string' }
 
   before do
-    config.stub(:initialize_path) { initialize_path_string }
-    config.stub(:load_path)       { load_path_string }
+    config.stub(:initialize_path) { 'initialize string' }
+    config.stub(:load_path)       { 'load string' }
+    config.stub(:upsert_path)     { 'upsert string' }
   end
 
   describe ".netsuite_initialize" do
@@ -31,6 +33,10 @@ describe Wyatt::Netsuite::Request do
   end
 
   describe "#upsert" do
+     it "initializes a request for an upsert operation" do
+      request.should_receive(:new).with(:post, upsert_path, build_params, body)
+      request.upsert(body)
+    end
   end
 
   describe "#transform" do

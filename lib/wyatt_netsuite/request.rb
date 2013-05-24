@@ -16,6 +16,10 @@ module Wyatt
         build(:load_path, body)
       end
 
+      def self.upsert(body)
+        build(:upsert_path, body)
+      end
+
 
       #Wyatt::Netsuite.upsert(Wyatt::Netsuite::RecordSet.new)
 
