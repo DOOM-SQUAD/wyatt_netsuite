@@ -39,9 +39,6 @@ describe Wyatt::Netsuite::Request do
   describe "#delete" do
   end
 
-  describe "#upsert" do
-  end
-
   describe "#search" do
   end
 
