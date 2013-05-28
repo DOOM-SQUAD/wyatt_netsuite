@@ -7,8 +7,8 @@ module Wyatt
 
       NETSUITE_SETTINGS = :netsuite
 
-      def load
-        @netsuite_settings = Wyatt::Configuration.raw_settings[NETSUITE_SETTINGS]
+      def netsuite_settings
+        Wyatt::Configuration.raw_settings[NETSUITE_SETTINGS]
       end
 
       def protocol
@@ -16,11 +16,11 @@ module Wyatt
       end
 
       def domain
-        @netsuite_settings[:domain]
+        netsuite_settings[:domain]
       end
 
       def base_path
-        @netsuite_settings[:base_path]
+        netsuite_settings[:base_path]
       end
 
       def netsuite_url
@@ -28,12 +28,12 @@ module Wyatt
       end
 
       def url_suffix(operation_key)
-        suffix_settings = @netsuite_settings[operation_key]
+        suffix_settings = netsuite_settings[operation_key]
         "?deploy=#{suffix_settings[:deploy]}&script=#{suffix_settings[:script]}"
       end
 
       def port
-        @netsuite_settings[:port]
+        netsuite_settings[:port]
       end
 
       def auth_string
@@ -76,20 +76,20 @@ module Wyatt
       private
 
       def account_id
-        "nlauth_account=#{@netsuite_settings[:account_id]}"
+        "nlauth_account=#{netsuite_settings[:account_id]}"
       end
 
       def login
-        "nlauth_email=#{URI.escape(@netsuite_settings[:login], 
+        "nlauth_email=#{URI.escape(netsuite_settings[:login], 
            Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))}"
       end
 
       def password
-        "nlauth_signature=#{@netsuite_settings[:password]}"
+        "nlauth_signature=#{netsuite_settings[:password]}"
       end
 
       def role_id
-        "nlauth_role=#{@netsuite_settings[:role_id]}"
+        "nlauth_role=#{netsuite_settings[:role_id]}"
       end
     end
 

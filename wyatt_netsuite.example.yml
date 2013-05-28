@@ -1,0 +1,28 @@
+netsuite:
+  account_id: 123456
+  login:      username@domain.suffix
+  password:   pasSw0rd
+  role_id:    1234
+  initialize:
+    deploy: 7
+    script: 25
+  load:
+    deploy: 6
+    script: 24
+    url_prefix: '/some/other/app/hosting/restlet.nl'
+  upsert:
+    deploy: 5
+    script: 4
+  delete:
+    deploy: 4
+    script: 4
+  transform:
+    deploy: 3
+    script: 4
+  search:
+    deploy: 2
+    script: 21
+  saved_search:
+    deploy: 1
+    script: 4
+

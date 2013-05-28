@@ -33,7 +33,6 @@ describe Wyatt::Netsuite::Configuration do
 
   before do
     Wyatt::Configuration.stub(:raw_settings) { settings }
-    config.load
   end
 
   it 'should define the netsuite key of the configuration hash' do
