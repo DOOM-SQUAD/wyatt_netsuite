@@ -20,26 +20,21 @@ module Wyatt
         build(:upsert_path, body)
       end
 
+      def self.transform(body)
+        build(:transform_path, body)
+      end
 
-      #Wyatt::Netsuite.upsert(Wyatt::Netsuite::RecordSet.new)
+      def self.delete(body)
+        build(:delete_path, body)
+      end
 
-      #ii = Wyatt::Netsuite::InventoryItem.new
-      #ii.upsert
+      def self.search(body)
+        build(:search_path, body)
+      end
 
-      #{
-        #id: 123,
-        #displayname: 'VENDOR-STYLE-COLOR',
-        #quantityonhand: 77
-      #}
-
-      #ii = Wyatt::Netsuite::InventoryItem.new
-      #ii.display_name = 'VENDOR-STYLE-COLOR'
-
-      #Product.to_erp
-
-      #Wyatt::Netsuite::Request.initialize_request do |req|
-      #  req.record_type = 'foo'
-      #end
+      def self.saved_search(body)
+        build(:saved_search_path, body)
+      end
 
       private
 
@@ -50,14 +45,15 @@ module Wyatt
         true
       end
 
-      def self.build(method, body)
-        Wyatt::Netsuite::Request.new(
+      def self.build(http_method, body)
+        new(
           :post,
-          Wyatt::Netsuite::Configuration.send(method),
+          Wyatt::Netsuite::Configuration.send(http_method),
           build_params,
           body
         )
       end
+
     end
   
   end
