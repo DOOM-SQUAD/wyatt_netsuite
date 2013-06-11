@@ -3,16 +3,16 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.rubygems_version = '2.0.3'
 
-  s.name              = 'wyatt_netsuite'
-  s.version           = '0.0.0'
-  s.date              = '2013-05-17'
+  s.name    = 'wyatt_netsuite'
+  s.version = '0.0.0'
+  s.date    = '2013-05-17'
 
-  s.description   = %q{NetSuite plugin for wyatt}
-  s.summary       = %q{NetSuite plugin for wyatt}
+  s.description = %q{NetSuite plugin for wyatt}
+  s.summary     = %q{NetSuite plugin for wyatt}
 
-  s.authors       = ["James Christie", "Christopher M. Hobbs", "Alex Williams"]
-  s.email         = ["jchristie@acumenholdings.com", "chobbs@acumenholdings.com", "awilliams@acumenholdings.com"]
-  s.homepage      = "https://github.com/acumenbrands/wyatt_netsuite"
+  s.authors  = ["James Christie", "Christopher M. Hobbs", "Alex Williams", "Brad Simmons"]
+  s.email    = ["jchristie@acumenholdings.com", "chobbs@acumenholdings.com", "awilliams@acumenholdings.com" "bsimmons@acumenholdings.com"]
+  s.homepage = "https://github.com/acumenbrands/wyatt_netsuite"
 
   s.require_paths = %w[lib]
 
@@ -34,5 +34,5 @@ Gem::Specification.new do |s|
   ]
   # = MANIFEST =
 
-  s.test_files    = s.files.grep(%r{^spec/})
+  s.test_files = s.files.grep(%r{^spec/})
 end

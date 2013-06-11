@@ -8,7 +8,7 @@ module Wyatt
       NETSUITE_SETTINGS = :netsuite
 
       def netsuite_settings
-        Wyatt::Configuration.raw_settings[NETSUITE_SETTINGS]
+        Wyatt::Core::Configuration.raw_settings[NETSUITE_SETTINGS]
       end
 
       def protocol

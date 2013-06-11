@@ -2,7 +2,7 @@ module Wyatt
 
   module Netsuite
 
-    class Response < Wyatt::Response
+    class Response < Wyatt::Core::Response
 
       attr_reader :raw_results, :results
 

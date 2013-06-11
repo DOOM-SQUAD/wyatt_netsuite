@@ -2,7 +2,7 @@ module Wyatt
 
   module Netsuite
 
-    class Request < Wyatt::Request
+    class Request < Wyatt::Core::Request
 
       def initialize(http_method, uri, params, body, options={})
         super

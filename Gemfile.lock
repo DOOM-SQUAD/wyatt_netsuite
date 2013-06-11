@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/acumenbrands/wyatt.git
-  revision: de097c5138c163092f487151901cc769be52e3b8
+  revision: d6ae2d2732c599857aa780655e0d8ba00ccc81ed
   specs:
     wyatt (0.0.0)
       addressable
