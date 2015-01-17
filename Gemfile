@@ -1,6 +1,6 @@
 source 'https://rubygems.org/'
 
-gem 'wyatt', :git => "git://github.com/acumenbrands/wyatt.git"
+gem 'wyatt', :git => "git://github.com/DOOM-SQUAD/wyatt.git"
 
 group :development, :test do
   gem 'pry',   '0.9.12.2'
